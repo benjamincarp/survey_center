@@ -1,4 +1,3 @@
-var express = require('express');
 var app = require('../app');
 var async = require('async');
 

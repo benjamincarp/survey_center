@@ -7,7 +7,7 @@ var answerSchema = new Schema({
 	//_id is works better if left implied rather than defined in mongoose
 	text: 			{type: String, required: true},												//the answer to show the user
 	sort_order:		{type: Number, required: true, default: 99},								//index used to sort answers in a question, in general lower sort_order answers will be first
-	question: 		{type: mongoose.Schema.Types.ObjectId, ref: 'question', required: true},	//back pointer to the question that this answer belongs to
+	question: 		{type: Schema.Types.ObjectId, ref: 'question', required: true},	//back pointer to the question that this answer belongs to
 	response_count: {type: Number, required: true, default: 0},									//the count of times this answer has been selected so far
 	creation_date:  {type: Date, required: true, default: Date.now}    							//the date the answer was added, will be set automatically
 });
