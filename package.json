@@ -1,0 +1,31 @@
+{
+  "name": "survey_center",
+  "version": "0.1.0",
+  "description": "A simple online survey system",
+  "main": "app.js",
+  "readme": "readme.rm",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benjamincarp/survey_center"
+  },
+  "author": "Ben Carpenter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benjamincarp/survey_center/issues"
+  },
+  "homepage": "https://github.com/benjamincarp/survey_center",
+  "dependencies": {
+    "backbone": "*",
+    "body-parser": "*",
+    "express": "*",
+    "express-uncapitalize": "*",
+    "hogan.js": "*",
+    "mongoose": "*",
+    "serve-static": "*",
+    "async": "*",
+    "underscore": "*"
+  }
+}
