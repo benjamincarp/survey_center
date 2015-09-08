@@ -50,4 +50,23 @@ questionSchema.methods.delete = function (callback) {
     );
 };
 
+//Get the JSON of this model with embedded answer models
+//callback returns any errors and the JSON version of this model with an embedded array of the quesiton's answers
+questionSchema.methods.toJsonWithAnswers = function (callback) {
+    var question = this.toJSON();
+
+    app.db.models.Answer.find({question: this._id}).sort({sort_order: 1}).exec(function(err, answers){
+        if (err) return callback(err);
+
+        //convert the answer models to JSON
+        for (var i=0; i<answers.length; i++){
+            answers[i] = answers[i].toJSON();
+        }
+
+        //now that both the quesiton and the answer array are in JSON format, add the answers and return
+        question.answers = answers;
+        return callback(null, question);
+    });
+};
+
 app.db.model('Question', questionSchema);

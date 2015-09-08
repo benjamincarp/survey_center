@@ -3,6 +3,15 @@ var Schema = mongoose.Schema;
 var app = require('../app');
 var async = require('async');
 
+var schemaOptions = {       //set if virtuals are returned by default in toObject and toJSON calls
+    toObject: {
+        virtuals: true
+    },
+    toJSON: {
+        virtuals: true
+    }
+};
+
 var answerSchema = new Schema({
 	//_id is works better if left implied rather than defined in mongoose
 	text: 			{type: String, required: true},												//the answer to show the user
@@ -10,12 +19,18 @@ var answerSchema = new Schema({
 	question: 		{type: Schema.Types.ObjectId, ref: 'question', required: true},	//back pointer to the question that this answer belongs to
 	response_count: {type: Number, required: true, default: 0},									//the count of times this answer has been selected so far
 	creation_date:  {type: Date, required: true, default: Date.now}    							//the date the answer was added, will be set automatically
-});
+},
+    schemaOptions
+);
 
 answerSchema.virtual('uri').get(function () {
 	return '/questions/' + this.question + '/answers/' + this._id;
 });
 
+//easy access to the route to add a response for this answer
+answerSchema.virtual('response_uri').get(function () {
+    return this.uri + '/responses';
+});
 
 //updates the count in the answer model to reflect how many responses point to it
 //callback returns any errors and the passed answer model
