@@ -8,7 +8,7 @@
         <div id="divAnswers" class="answers">
             {{#answers}}
                 <div>
-                    <input id="answer^{{_id}}" type="radio" name="answerRadio" value={{response_uri}}>
+                    <input id="answer^{{_id}}" type="radio" name="answerRadio" value={{response_uri}} class="answerOption">
                     <label for="answer^{{_id}}"><span class="replacement_radio_image"></span>{{text}}</label>
                 </div>
             {{/answers}}

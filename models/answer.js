@@ -24,7 +24,7 @@ var answerSchema = new Schema({
 );
 
 answerSchema.virtual('uri').get(function () {
-	return '/questions/' + this.question + '/answers/' + this._id;
+	return 'api/questions/' + this.question + '/answers/' + this._id;
 });
 
 //easy access to the route to add a response for this answer

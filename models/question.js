@@ -22,7 +22,7 @@ var questionSchema = new Schema({
 );
 
 questionSchema.virtual('uri').get(function () {
-  return '/questions/' + this._id;
+  return 'api/questions/' + this._id;
 });
 
 //deletes the question model and all of the answers and responses that point to it

@@ -12,7 +12,7 @@ var responseSchema = new Schema({
 });
 
 responseSchema.virtual('uri').get(function () {
-  return '/questions/' + this.question + '/answers/' + this.answer + '/responses/' + this._id;
+  return 'api/questions/' + this.question + '/answers/' + this.answer + '/responses/' + this._id;
 });
 
 app.db.model('Response', responseSchema);
