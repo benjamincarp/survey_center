@@ -1,0 +1,23 @@
+{{>header}}
+<div id="divContent" class="content">
+	{{#question}}
+	    <div id="divQuestion" class="question">
+            {{text}}
+        </div>
+        <hr>
+        <div id="divAnswers" class="answers">
+            {{#answers}}
+                <div>
+                    <input id="answer^{{_id}}" type="radio" name="answerRadio" value={{response_uri}}>
+                    <label for="answer^{{_id}}"><span class="replacement_radio_image"></span>{{text}}</label>
+                </div>
+            {{/answers}}
+        </div>
+        <button class="submit disabled">Submit</button>
+	{{/question}}
+
+	{{^question}}
+	    Sorry, there are no survey questions to show at this time. Please try again later.
+	{{/question}}
+</div>
+{{>footer}}
