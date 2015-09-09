@@ -12,8 +12,9 @@
                     <label for="answer^{{_id}}"><span class="replacement_radio_image"></span>{{text}}</label>
                 </div>
             {{/answers}}
+
+            <button class="submit disabled">Submit</button>
         </div>
-        <button class="submit disabled">Submit</button>
 	{{/question}}
 
 	{{^question}}

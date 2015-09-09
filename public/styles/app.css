@@ -16,6 +16,12 @@ body {
   font-weight: 600;
   font-size: 1.5rem;
 }
+.resultCount {
+  float: right;
+}
+.description {
+  margin-bottom: 10px;
+}
 button {
   background-color: #404040;
   color: #dee0e0;

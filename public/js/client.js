@@ -1,7 +1,9 @@
 define([
-        'jquery'
+        'jquery',
+        'hogan',
+        'text!../templates/results.hjs'
     ],
-    function($) {
+    function($, Hogan, resultsTemplate) {
         $(function(){  //use this wrapper to ake sure jquery is ready to rock and roll before we do anything
 
             var selectedAnswerURL;  //this will be set to the url to post a response for the selected answer
@@ -49,7 +51,10 @@ define([
             };
 
             var showResults = function(answers, textStatus, jqXHR){
-                alert('show the results!');
+                //compile and render our partial hogan template
+                var html = Hogan.compile(resultsTemplate).render({answers: answers});
+                //and replace the answers div with our new results div
+                $('#divAnswers').replaceWith(html);
             };
         });
     }

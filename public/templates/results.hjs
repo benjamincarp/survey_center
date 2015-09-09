@@ -1,0 +1,11 @@
+<div id="divResults" class="answers">
+    <div class="description">So far these are the results of this quesiton:</div>
+    {{#answers}}
+        <div class="resultAnswer">
+            {{text}}
+            <span class="resultCount">
+                {{response_count}}
+            </span>
+        </div>
+    {{/answers}}
+</div>
