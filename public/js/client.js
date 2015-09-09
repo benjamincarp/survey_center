@@ -51,6 +51,19 @@ define([
             };
 
             var showResults = function(answers, textStatus, jqXHR){
+                //calculate percentage use of each answer
+                var total = 0;
+                //find the total number of responses, if we had a ton of answers it might be better to do this on the server with a query
+                for(var i=0; i<answers.length; i++){
+                    total+=answers[i].response_count;
+                }
+                //add a new property for the response_percent to each answer
+                for(var i=0; i<answers.length; i++){
+                    var percent = (answers[i].response_count*100)/total;
+                    percent = percent.toFixed().toString() + '%';    //round off any decimals, convert to string, and add'%'
+                    answers[i].response_percent = percent;
+                }
+
                 //compile and render our partial hogan template
                 var html = Hogan.compile(resultsTemplate).render({answers: answers});
                 //and replace the answers div with our new results div

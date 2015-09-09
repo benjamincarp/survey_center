@@ -16,11 +16,16 @@ router.get('/',function(req,res,next){
     app.db.models.Question.findOne({}, function(err,question){
         if (err) return next(err);
 
+        if(!question) return res.render('index'); //render our index page with no question if we can't find one
+
         //get the question and it's answers in JSON format
         question.toJsonWithAnswers(function(err, _question){
             if (err) return next(err);
 
-            res.locals.question = _question;  //make the question available to the hogan templates
+            //make the question available to the hogan templates
+            //but only if the question has some answers
+            if (_question && _question.answers && (_question.answers.length>0)) res.locals.question = _question;
+
             res.render('index'); //render our index page
         });
     });

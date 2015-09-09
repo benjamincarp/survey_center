@@ -1,4 +1,3 @@
-@import url(http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css);
 @background1: #5093B4;
 @background2: #DEE0E0;
 @text: #404040;
@@ -24,14 +23,19 @@ body{
   font-size: 1.5rem;
 }
 
-.resultCount{
-  float: right;
-}
-
 .description{
   margin-bottom: 10px;
 }
 
+//result table layout
+#tableResults{
+  width: 100%;
+}
+.resultCount,.resultPercent{
+  text-align: right;
+}
+
+//submit button styling
 button{
   background-color: @text;
   color: @background2;

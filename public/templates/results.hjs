@@ -1,11 +1,22 @@
 <div id="divResults" class="answers">
     <div class="description">So far these are the results of this quesiton:</div>
-    {{#answers}}
-        <div class="resultAnswer">
-            {{text}}
-            <span class="resultCount">
-                {{response_count}}
-            </span>
-        </div>
-    {{/answers}}
+
+    <table id="tableResults">
+        <col width="60%">
+        <col width="20%">
+        <col width="20%">
+        {{#answers}}
+            <tr class="resultRow">
+                <td class="resultAnswer">
+                    {{text}}
+                </td>
+                <td class="resultCount">
+                    {{response_count}}
+                </td>
+                <td class="resultPercent">
+                    {{response_percent}}
+                </td>
+            </tr>
+        {{/answers}}
+    </table>
 </div>
